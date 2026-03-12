@@ -1,0 +1,14 @@
+
+spring:
+  application:
+    name: cart-service
+  datasource:
+    url: jdbc:mysql://mysql:3306/cartigo_cart?createDatabaseIfNotExist=true
+    username: root
+    password: root123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
