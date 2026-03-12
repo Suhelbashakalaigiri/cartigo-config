@@ -29,7 +29,7 @@ spring:
           routes:
             # Auth service
             - id: auth-service
-              uri: lb://CARTIGO-AUTH-SERVICE
+              uri: lb://AUTH-SERVICE
               predicates:
                 - Path=/auth/**
 
@@ -95,7 +95,7 @@ spring:
                 - StripPrefix=1
 
             - id: auth-service-swagger
-              uri: lb://CARTIGO-AUTH-SERVICE
+              uri: lb://AUTH-SERVICE
               predicates:
                 - Path=/auth-service-swagger/v3/api-docs
               filters:
