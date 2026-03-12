@@ -2,16 +2,25 @@ server:
   port: 9003
 
 spring:
-  application:
-    name: product-service
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
   datasource:
     url: jdbc:mysql://mysql:3306/cartigo_product?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password: root123
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
         format_sql: true
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka
+  instance:
+    prefer-ip-address: true
