@@ -13,3 +13,20 @@ spring:
       hibernate:
         format_sql: true
 
+jwt:
+  secret: "change-me-to-a-long-secret-change-me-to-a-long-secret"
+  expirationMinutes: ${JWT_EXP_MINUTES:60}
+
+#  ${JWT_SECRET:change-me-to-a-long-secret-change-me-to-a-long-secret}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://service-registry:8761/eureka}
+  instance:
+    prefer-ip-address: true
