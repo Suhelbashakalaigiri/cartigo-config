@@ -1,17 +1,24 @@
 server:
-  port: 9011
-
+  port: 8087
 spring:
-  application:
-    name: notification-service
-  datasource:
-    url: jdbc:mysql://mysql:3306/cartigo_notify?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
-    username: root
-    password: root
-  jpa:
-    hibernate:
-      ddl-auto: update
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_APP_PASSWORD:}
     properties:
-      hibernate:
-        format_sql: true
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-registry:8761/eureka
+  instance:
+    prefer-ip-address: true
+app:
+  security:
+    permit-all: true
