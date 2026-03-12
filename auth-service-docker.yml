@@ -1,6 +1,6 @@
 server:
   port: 8080
-  
+
 spring:
   application:
     name: auth-service
@@ -14,7 +14,17 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_APP_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
 jwt:
   secret: "change-me-to-a-long-secret-change-me-to-a-long-secret"
   expirationMinutes: ${JWT_EXP_MINUTES:60}
