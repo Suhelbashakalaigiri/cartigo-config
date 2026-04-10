@@ -20,3 +20,16 @@ eureka:
       defaultZone: http://service-registry:8761/eureka
   instance:
     prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+    export:
+      enabled: true
+      zipkin:
+        enabled: true
+        endpoint: http://zipkin:9411/api/v2/spans

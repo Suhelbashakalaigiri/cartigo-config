@@ -2,9 +2,6 @@ server:
   port: 8089
 
 spring:
-  application:
-    name: payment-service
-
   datasource:
     url: jdbc:mysql://mysql:3306/cartigo_payment?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
     username: root
@@ -38,3 +35,16 @@ eureka:
       defaultZone: http://service-registry:8761/eureka   # ✅ docker service name
   instance:
     prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  tracing:
+    sampling:
+      probability: 1.0
+    export:
+      enabled: true
+      zipkin:
+        enabled: true
+        endpoint: http://zipkin:9411/api/v2/spans
