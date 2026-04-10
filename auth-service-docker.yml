@@ -28,13 +28,21 @@ spring:
 jwt:
   secret: "change-me-to-a-long-secret-change-me-to-a-long-secret"
   expirationMinutes: ${JWT_EXP_MINUTES:60}
-
+#${JWT_SECRET}
 #  ${JWT_SECRET:change-me-to-a-long-secret-change-me-to-a-long-secret}
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics,env,loggers
+  tracing:
+    sampling:
+      probability: 1.0
+    export:
+      enabled: true
+      zipkin:
+        enabled: true
+        endpoint: http://localhost:9411/api/v2/spans
 
 eureka:
   client:

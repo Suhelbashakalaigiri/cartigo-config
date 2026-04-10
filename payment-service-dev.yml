@@ -1,5 +1,5 @@
 server:
-  port: 9006
+  port: 8089
 
 spring:
   datasource:
@@ -12,7 +12,20 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+jwt:
+  secret: "change-me-to-a-long-secret-change-me-to-a-long-secret"
+razorpay:
+  key-id: ${RAZORPAY_KEY_ID}
+  key-secret: ${RAZORPAY_KEY_SECRET}
 
-#razorpay:
-#  key-id: ${RAZORPAY_KEY_ID}
-#  key-secret: ${RAZORPAY_KEY_SECRET}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
