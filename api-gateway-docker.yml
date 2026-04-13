@@ -52,7 +52,7 @@ spring:
             - id: category-service
               uri: lb://CARTIGO-CATEGORY-SERVICE
               predicates:
-                - Path=/api/categories/**
+                - Path=/api/category/**
 
             # Cart service
             - id: cart-service
