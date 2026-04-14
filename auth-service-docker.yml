@@ -25,6 +25,10 @@ spring:
           auth: true
           starttls:
             enable: true
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 jwt:
   secret: "change-me-to-a-long-secret-change-me-to-a-long-secret"
   expirationMinutes: ${JWT_EXP_MINUTES:60}

@@ -16,6 +16,11 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+        
 jwt:
   secret: "change-me-to-a-long-secret-change-me-to-a-long-secret"
 #${JWT_SECRET:change-me-to-a-long-secret-change-me-to-a-long-secret}

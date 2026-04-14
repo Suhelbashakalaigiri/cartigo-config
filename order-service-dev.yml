@@ -2,7 +2,10 @@ server:
   port: 8088
 
 spring:
-
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
   datasource:
     url: jdbc:mysql://localhost:3306/cartigo_orders_db?createDatabaseIfNotExist=true
     username: root

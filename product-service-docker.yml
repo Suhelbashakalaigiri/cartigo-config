@@ -18,6 +18,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 eureka:
   client:
     service-url:

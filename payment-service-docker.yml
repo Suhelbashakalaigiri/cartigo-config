@@ -15,7 +15,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
   kafka:
     bootstrap-servers: kafka:9092   # ✅ docker service name
     producer:
